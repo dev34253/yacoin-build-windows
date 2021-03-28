@@ -8,6 +8,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Get all LFS files
+        run: |
+          git lfs pull
+          dir downloads
       - name: Build image for Windows
         run: |
           docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PWD }}" 
