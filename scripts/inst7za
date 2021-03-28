@@ -1,0 +1,10 @@
+if [ -z ${YDIR+x} ]; then echo "YDIR var is unset. Aborting."; return 0
+elif [ -z ${YDL+x} ]; then echo "YDL var is unset. Aborting."; return 0
+elif ! cd $YDIR; then echo "Can not switch to $YDIR directory - YDIR. Aborting."; return 0
+elif ! cd $YDL; then echo "Can not switch to $YDL directory - YDL. Aborting."; cd $YDIR; return 0
+fi
+
+cd $YDL
+
+unzip -o 7za920.zip 7za.exe
+mv 7za.exe /bin
